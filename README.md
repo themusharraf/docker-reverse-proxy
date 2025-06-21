@@ -1,5 +1,9 @@
 # Reverse Proxy
 
+### 🔁 Reverse Proxy – bu nima?
+Reverse Proxy bu — Nginx foydalanuvchidan so‘rovni oladi va uni boshqa backend serverga (masalan, Flask, FastAPI, Node.js) yuboradi, so‘ng javobni qaytaradi.
+
+
 ---
 
 ## 📁 Loyiha tuzilmasi:
