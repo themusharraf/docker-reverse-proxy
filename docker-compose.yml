@@ -1,10 +1,35 @@
 version: "3.9"
 
 services:
+  app1:
+    build: ./backend/app1
+    container_name: app1
+    expose:
+      - "8001"
+    networks:
+      - backend
+
+  app2:
+    build: ./backend/app2
+    container_name: app2
+    expose:
+      - "8002"
+    networks:
+      - backend
+
   nginx:
-    build: .
+    build: ./nginx
     container_name: my-nginx
     ports:
-      - "9001:9001"
-      - "9002:9002"
+      - "8001:8001"
+      - "8002:8002"
     restart: unless-stopped
+    depends_on:
+      - app1
+      - app2
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
